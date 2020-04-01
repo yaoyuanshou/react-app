@@ -1,0 +1,23 @@
+@charset "utf-8";
+/*
+*{margin:0;padding:0;}
+*/
+html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img,input,select,textarea{margin:0;padding:0}
+
+body{font-size:16px;font-family:'微软雅黑';}
+
+ul,ol,dl,li{list-style:none;}
+
+i,em{font-style:normal;}
+
+b,strong{font-weight:normal;}
+
+u , a{text-decoration:none;}
+
+a{color:#000;}
+
+h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:16px;}
+input{border:0;outline:none;}
+form input{outline:none;}
+img{border:0;vertical-align:middle;}
+.clearfu::after{content:"";display:block;clear:both;height:0;overflow:hidden;visibility:hidden;}
