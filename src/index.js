@@ -5,6 +5,6 @@ import './assets/css/base.css'
 
 import App from './layouts/App'
 ReactDom.render(
-    <App></App>,
+    <App>你好</App>,
     document.getElementById("root")
 )
