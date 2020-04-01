@@ -7,6 +7,7 @@ export default class App extends React.Component{
                 <h1>Hello</h1>
                 <h2>world</h2>
                 <h3>你好</h3>
+                <h4>你不好</h4>
             </div>
         )
     }
