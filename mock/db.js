@@ -11,15 +11,31 @@ let mapData = (n) => {
  
     data.push({
       id: i,
-      title: "@ctitle(8,12)",
-      des: "@csentence(10, 20)",
-      time: "@integer(1553425967486,1553475967486)",
+      title: "@ctitle(3,6)",
+      time: "@date(yyyy-MM-dd)",
+      img:"https://acg.xydwz.cn/gqapi/gqapi.php",
       detail:{
-        auth:"@cname()",
-        content:"@cparagraph(10,40)",
-        auth_icon:mr.image('50x50', mr.color(), mr.cword(1)),
-        icon:"https://acg.xydwz.cn/gqapi/gqapi.php"
+        desc: "@cword(3,6)",
+        visit:"@url()",
+        author:"@cname()"
       }
+    })
+  }
+  return data
+};
+let directory = (n) => {
+  var data = [];
+  let detail=mapData(60)
+  for (var i = 1; i <= n; i++) {
+ 
+    data.push({
+      id: i,
+      title: "@ctitle(3,6)",
+      name:"@cname()",
+      "count|1-100":100,
+      detail:[
+        ...detail
+      ]
     })
   }
   return data
@@ -30,21 +46,19 @@ module.exports = {
  
   ...Mock.mock({
  
-    'home': mapData(32),//解决 auth_icon 不随机
-    'follow': mapData(21),
-    'column': mapData(11),
-    'banner|3': [
+    'home': mapData(300),//解决 auth_icon 不随机
+    'directory': directory(60),
+    'banner|6': [
       {
         // 属性 id 是一个自增数，起始值为 1，每次增 1
         'id|+1': 1,
-        title: "@ctitle(4,8)",//标题型中文4到8个字
-        sub_title: "@ctitle(6,12)",
-        banner: mr.image('750x501', mr.color(), mr.cword(4,10)),//banner不变
-        time: "@integer(1553425967486,1553475967486)",
+        title: "@ctitle(3,6)",//标题型中文4到8个字
+        time: "@date(yyyy-MM-dd)",
+        img:"https://acg.xydwz.cn/gqapi/gqapi.php",
         detail:{
-          icon:mr.image('20x20', mr.color(), mr.cword(1,2)),//20X20尺寸
-          auth:"@cname()",//百家姓
-          content:"@cparagraph(10,40)"//正文
+          desc: "@cword(3,6)",
+          visit:"@url()",
+          author:"@cname()"
         }
       }
     ],
