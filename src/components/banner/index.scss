@@ -1,0 +1,64 @@
+#slideshow{
+    width: 100%;
+    background-color: #464E54;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    height: 530px;
+    transition: all 0.05s;
+    font-size: 100%;
+    font-weight: bold;
+    .centered{
+        color: #EAEAEA;
+        margin-bottom: 25px;
+        font-size: 27px;
+        text-align: center;
+        margin-top: 12px;
+    }
+    .slideshow{
+        .bannerGo{
+            div {
+                position: relative;
+                width:640px;
+                margin: 0 auto;
+                cursor: pointer;
+                .bannerTitle{
+                    font-size: 13px;
+                    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+                    font-weight: bold;
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    color: #EAEAEA;
+                    background-color: rgba(70,78,84,0.6);
+                    padding: 1em 1.8em;
+                    margin: 0;
+                    transition: all 0.05s;
+                    -webkit-font-smoothing: antialiased;
+                }
+            }
+            div:hover .bannerTitle{
+                background-color: rgba(70,78,84,0.8);
+            }
+            
+        }
+    }
+    .slick-next{
+        right: 10%;
+        width: 40px;
+        height:40px;
+    }
+    .slick-next:before {
+        font-size: 40px;
+    }
+    .slick-prev {
+        left: 10%;
+        z-index: 101;
+        width: 40px;
+        height:40px;
+    }
+    .slick-prev:before {
+        font-size: 40px;
+    }
+}
