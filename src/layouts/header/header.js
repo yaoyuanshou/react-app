@@ -56,7 +56,7 @@ class Header extends React.Component {
     render() {
         let { active } = this.state
         return (
-            <div>
+            <div className="headerWrapper">
                 <div className="header">
                     <a to="http://localhost:8533" className="logo">
 

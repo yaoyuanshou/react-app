@@ -1,9 +1,14 @@
+.headerWrapper{
+    width:100%;
+    background: #fff;
+}
 .header{
     width: 920px;
     padding: 20px 0;
     margin: 0 auto;
     display: flex;
     align-items: center;
+    background: #fff;
     .logo{
         display: inline-block;
         width: 80px;

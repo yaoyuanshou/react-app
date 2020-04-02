@@ -3,6 +3,7 @@ import Header from './header/header'
 import {BrowserRouter} from 'react-router-dom'
 import Banner from '../components/banner'
 import Home from '../pages/Home'
+import Footer from './footer/footer'
 export default class App extends React.Component{
     render(){
         return (
@@ -12,6 +13,7 @@ export default class App extends React.Component{
                 </BrowserRouter>
                 <Banner/>
                 <Home/>
+                <Footer></Footer>
             </div>
         )
     }
