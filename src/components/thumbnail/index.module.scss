@@ -1,0 +1,88 @@
+/*
+    通用组件thumbnail样式的开发
+    2020/4/2
+    version: 0.0.1
+*/
+.thumbnail {
+    width: 33.33333%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding: 0 10px;
+    .wrapper {
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.05);
+        padding: 15px;
+        overflow: hidden;
+        .image {
+            position: relative;
+            line-height: inherit;
+            cursor: pointer;
+            .main {
+                padding: 0;
+                display: block;
+                .show {
+                    opacity: 1;
+                    max-width: 100%;
+                    height:auto
+                }
+            }
+            .overlay {
+                opacity: 0;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                z-index: 100;
+                text-align: center;
+                transition: opacity 0.05s;
+                .visit {
+                    color: #EAEAEA;
+                    font-size: 10px;
+                    padding: 15px;
+                    display: block;
+                    background-color: rgba(70,78,84,0.8);
+                    span {
+                        height: 9px;
+                        width: 12px;
+                        background-image: url(../../assets/img/logo.png);
+                        background-position: 0 -511px;
+                        background-repeat: no-repeat;
+                        text-indent: -999em;
+                        display: block;
+                        position: relative;
+                        top: 1px;
+                    }
+                }
+            }
+        }
+        .image:hover .overlay{
+            opacity: 1;
+        }
+    
+    
+    }
+    .caption {
+        padding-top: 10px;
+        padding-bottom: 20px;
+        min-height: 62px;
+        .title {
+            display: block;
+            margin-bottom: 4px;
+            color: #000;
+            div{
+                display: inline;
+            }
+        }
+        .title div:hover {
+            color: red;
+            cursor: pointer;
+
+        }
+        .sub {
+            font-size: 11px;
+            color: #959a9e;
+            display: inline-block;
+        }
+    }
+}
