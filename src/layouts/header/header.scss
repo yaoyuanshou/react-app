@@ -1,0 +1,157 @@
+.header{
+    width: 920px;
+    padding: 20px 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    .logo{
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2122619217,2589529400&fm=26&gp=0.jpg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin-right:54px;
+        cursor: pointer;
+    }
+    .navbox{
+        margin-right: auto;
+        .nav{
+            a{
+                font-size: 12px;
+                margin-right: 12px ;
+                color: #959a9e;
+                &:hover{
+                    color:#000
+                }
+            }
+            .active{
+                color:#000
+            }
+        }
+        .line{
+            width:318px;
+            height:2px;
+            background: rgb(234,234,234);
+            margin: 8px 0;
+            position: relative;
+            .now{
+                display: inline-block;
+                background: #000;
+                position: absolute;
+                left: 0;
+                width:30px;
+                height: 2px;
+            }
+            .hover{
+                display: inline-block;
+                background: #000;
+                position: relative;
+                top:-15px;
+                width:30px;
+                height: 2px;
+                transition: 0.5s ease all;
+            }
+        }
+        .header__navbox--subnav{
+            span{
+                font-size: 14px;
+                color:#959a9e;
+                margin-right: 15px;
+                .iconfont{
+                    font-size: 2px;
+                    margin-left: 5px;
+                }
+                &:hover{
+                    color:#000;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .loginbox{
+        width: 40px;
+        height:40px;
+        background:rgb(234,234,234);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        color:rgb(148,154,158);
+        font-size: 12px;
+        &:hover{
+            background: #000;
+            color:#fff;
+            cursor: pointer;
+        }
+        .login{
+            display: none;
+            width:115px;
+            height: 65px;
+            background: rgb(72,80,86);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            right: 40px;
+            top:0px;
+            border: 3px solid rgb(229,229,229);
+            .iconfont{
+                color: rgb(72,80,86);
+                position: absolute;
+                left:50px;
+                top:-20px;
+                font-size: 16px;
+            }
+            a{
+                color:rgb(148,154,158);
+                height: 18px;
+                font-size: 14px;
+                line-height: 18px;
+                &:hover{
+                    background: #fff;
+                }
+            }
+        }
+    }
+}
+.tagwrapper{
+    width:100%;
+    background: rgb(89,97,102);
+    display: none;
+    .tag{
+        width:920px;
+        margin: 0 auto;
+        color: #fff;
+        padding:20px 0;
+        .header__searchbox{
+            width: 290px;
+            margin: 0 auto;
+            .iconfont{
+                margin-right: 8px;
+                color: #fff;
+                font-size: 14px;
+            }
+            input{
+                border: none;
+                background: rgb(89,97,102);
+                border-bottom: 1px solid #fff;
+                display: inline-block;
+                width: 90%;
+                color: #fff;
+            }
+        }
+        span{
+            font-size: 11px;
+            padding:5px 10px;
+            background: #464e54;
+            line-height: 12px;
+            border-radius:10px ;
+            margin-right: 8px;
+            &:hover{
+                cursor: pointer;
+                background: rgb(255,51,51);
+            }
+        }
+    }
+}

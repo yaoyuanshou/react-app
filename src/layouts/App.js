@@ -1,18 +1,14 @@
 import React from 'react'
-
+import Header from './header/header'
+import {BrowserRouter} from 'react-router-dom'
 export default class App extends React.Component{
     render(){
         return (
             <div>
-                <h1>Hello</h1>
-                <h2>world</h2>
-                <h3>你好</h3>
-                <h4>你不好</h4>
-                <h5>你真好</h5>
-                <h5>你真好</h5>
-                <h5>你真好</h5>
-                <h5>你真好</h5>
-                <h5>你真好</h5>
+                <BrowserRouter>
+                <Header tagData={["animation","sound","apple",4,"lazy style","our"]}></Header>
+                </BrowserRouter>
+                
             </div>
         )
     }
