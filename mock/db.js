@@ -1,7 +1,7 @@
 // 用mockjs模拟生成数据
 var Mock = require('mockjs');
  
-let mr = Mock.Random;//提取mock的随机对象
+// let mr = Mock.Random;//提取mock的随机对象
  
 //随机id和图片
 let mapData = (n) => {
