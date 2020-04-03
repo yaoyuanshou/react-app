@@ -1,0 +1,42 @@
+/**
+ * 页面组件logoh样式的开发
+ * 时间：2020/4/3
+ * Version：0.0.1
+ * 
+ */
+
+#heading {
+    width: 940px;
+    max-width: 100%;
+    min-width: 768px;
+    margin: 0 auto;
+    padding: 0 0;
+    margin-top: 24px;
+    margin-bottom: 30px;
+    .primary {
+        width: 50%;
+        .breadcrumbs {
+            color: #959a9e;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+            font-weight: normal;
+            margin-top: 2em;
+            line-height: 1.5;
+            .home{
+                color: #959a9e;
+            }
+            .home:hover {
+                color: red;
+            }
+        }
+        h1 {
+            font-size: 27px;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+    }
+}
