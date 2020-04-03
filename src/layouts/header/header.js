@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import './header.scss'
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 class Header extends React.Component {
     //传进来的标签内容
     static propTypes={
@@ -10,7 +10,6 @@ class Header extends React.Component {
 
     state = {
         l: 0,//黑色运动线条的距离
-        active: 1,//导航点击时切换样式
         login: false,//注册登录是否显示
         tag: false,//副导航详情标签是否显示
         lNow:0,
@@ -54,18 +53,17 @@ class Header extends React.Component {
         return el
     }
     render() {
-        let { active } = this.state
         return (
             <div className="headerWrapper">
                 <div className="header">
-                    <a to="http://localhost:8533" className="logo">
+                    <Link to="/home" className="logo">
 
-                    </a>
+                    </Link>
                     <div className="navbox">
                         <div className="nav" ref={(el) => this.nav = el}>
-                            <Link to="/web" onClick={() => { this.setState({ active: 1 }), this.change }} className={active == 1 ? "active" : ""} onMouseEnter={this.currentL} onMouseLeave={() => this.setState({ l: 0 })}>网站</Link>
-                            <Link to="/dirctory" onClick={() => { this.setState({ active: 2 }), this.change }} className={active == 2 ? "active" : ""} onMouseEnter={this.currentL} onMouseLeave={() => this.setState({ l: 0 })}>目录</Link>
-                            <Link to="/about" onClick={() => { this.setState({ active: 3 }), this.change }} className={active == 3 ? "active" : ""} onMouseEnter={this.currentL} onMouseLeave={() => this.setState({ l: 0 })}>关于</Link>
+                            <NavLink to="/web" activeClassName="active" onMouseEnter={this.currentL} onMouseLeave={() => this.setState({ l: 0 })}>网站</NavLink>
+                            <NavLink to="/directory" activeClassName="active" onMouseEnter={this.currentL} onMouseLeave={() => this.setState({ l: 0 })}>目录</NavLink>
+                            <NavLink to="/about" activeClassName="active" onMouseEnter={this.currentL} onMouseLeave={() => this.setState({ l: 0 })}>关于</NavLink>
                         </div>
                         <div className="line">
                             <span className="now" style={{ left: this.state.lNow }}></span>
