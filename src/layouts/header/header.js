@@ -64,7 +64,7 @@ class Header extends React.Component {
                     <div className="navbox">
                         <div className="nav" ref={(el) => this.nav = el}>
                             <Link to="/web" onClick={() => { this.setState({ active: 1 }), this.change }} className={active == 1 ? "active" : ""} onMouseEnter={this.currentL} onMouseLeave={() => this.setState({ l: 0 })}>网站</Link>
-                            <Link to="/dirctory" onClick={() => { this.setState({ active: 2 }), this.change }} className={active == 2 ? "active" : ""} onMouseEnter={this.currentL} onMouseLeave={() => this.setState({ l: 0 })}>目录</Link>
+                            <Link to="/directory" onClick={() => { this.setState({ active: 2 }), this.change }} className={active == 2 ? "active" : ""} onMouseEnter={this.currentL} onMouseLeave={() => this.setState({ l: 0 })}>目录</Link>
                             <Link to="/about" onClick={() => { this.setState({ active: 3 }), this.change }} className={active == 3 ? "active" : ""} onMouseEnter={this.currentL} onMouseLeave={() => this.setState({ l: 0 })}>关于</Link>
                         </div>
                         <div className="line">
