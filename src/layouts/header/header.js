@@ -19,7 +19,7 @@ class Header extends React.Component {
     currentL = (ev) => {
         var l = ev.target.offsetLeft
         this.setState({
-            l: l - 355
+            l: l
         })
     }
     //控制登录是否渲染
