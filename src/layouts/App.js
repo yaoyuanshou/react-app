@@ -6,6 +6,7 @@ import Footer from './footer/footer'
 import Reg from '../pages/Reg'
 import Login from '../pages/Login'
 import Directory from '../pages/directory/directory'
+import about from '../pages/about'
 export default class App extends React.Component{
     render(){
         return (
@@ -15,7 +16,7 @@ export default class App extends React.Component{
                 <Route path='/login' component={Login}/>
                 <Route path='/reg' component={Reg}/>
                 <Route path="/directory" component={Directory}></Route>
-                <Route></Route>
+                <Route path="/about" component={about}></Route>
                 <Redirect from='/' to='/home' exact/>
                 <Footer></Footer>
             </div>

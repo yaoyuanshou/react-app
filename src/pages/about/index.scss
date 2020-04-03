@@ -1,0 +1,59 @@
+.aboutWrapper{
+    width: 920px;
+    margin: 0 auto;
+    overflow: hidden;
+    .about__title{
+        font-size: 22px;
+        width: 580px;
+        margin: 36px auto 16px;
+        text-align: center;
+        color: #505961;
+    }
+    .about__authJ{
+        p{
+            color: #505961;
+            font-size: 14px;
+        }
+        p:first-child{
+            font-weight: 900;
+            color: #505961;
+            margin-bottom: 15px;
+        }
+        width: 45%;
+        float: left;
+        margin-right: 5%;
+    }
+    .about__authY{
+        p{
+            color: #505961;
+            font-size: 14px;
+        }
+        p:first-child{
+            font-weight: 900;
+            color: #505961;
+            margin-bottom: 15px;
+        }
+        width: 50%;
+        float: right;
+    }
+    .about__sub{
+        font-size: 18px;
+        color: #505961;
+        width: 280px;
+        margin: 120px auto 50px;
+    }
+    .about__content{
+        width: 610px;
+        margin: 0 auto;
+        .about__content--title{
+            font-weight: 900;
+            color: #505961;
+            margin:8px 0;
+        }
+        .about__content--answer{
+            color: #505961;
+            margin-bottom: 8px;
+        }
+    }
+    
+}
