@@ -10,7 +10,7 @@ let mapData = (n) => {
   for (var i = 1; i <= n; i++) {
  
     data.push({
-      id: i,
+      _id: i,
       title: "@ctitle(3,6)",
       time: "@date(yyyy-MM-dd)",
       img:"https://acg.xydwz.cn/gqapi/gqapi.php",
@@ -29,7 +29,7 @@ let directory = (n) => {
   for (var i = 1; i <= n; i++) {
  
     data.push({
-      id: i,
+      _id: i,
       title: "@ctitle(3,6)",
       name:"@cname()",
       "count|1-100":100,
@@ -51,7 +51,7 @@ module.exports = {
     'banner|6': [
       {
         // 属性 id 是一个自增数，起始值为 1，每次增 1
-        'id|+1': 1,
+        '_id|+1': 1,
         title: "@ctitle(3,6)",//标题型中文4到8个字
         time: "@date(yyyy-MM-dd)",
         img:"https://acg.xydwz.cn/gqapi/gqapi.php",

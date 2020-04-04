@@ -9,7 +9,7 @@ class Cell extends React.Component {
     //需要传入的数据
     static propTypes={
         data:propTypes.shape({
-            id:propTypes.string,//id
+            _id:propTypes.string,//id
             title:propTypes.string,//标题
             auth:propTypes.string,//作者
             count:propTypes.number//数量
@@ -19,16 +19,16 @@ class Cell extends React.Component {
             apiname:propTypes.string//集合名称
         })
     }
-    to=(id)=>{
+    to=(_id)=>{
         if(!this.props.to) return
         let {history,to:{pathname,apiname}} = this.props
-        history.push({pathname:`${pathname}/${id}`,search:`apiname=${apiname}`})
+        history.push({pathname:`${pathname}/${_id}`,search:`apiname=${apiname}`})
         
     }
     render() {
-        let {data:{id,title,auth,count}} = this.props
+        let {data:{_id,title,auth,count}} = this.props
         return (
-            <div className="cellWrapper" onClick={()=>this.to(id)}>
+            <div className="cellWrapper" onClick={()=>this.to(_id)}>
                 <div>
                     <h1>{title}</h1>
                     <p>{auth}</p>
