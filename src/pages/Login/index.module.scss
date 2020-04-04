@@ -4,3 +4,54 @@
  * Version：0.0.1
  * 
  */
+ #login{
+    padding-bottom: 30px;
+    #auth{
+        width: 940px;
+        max-width: 100%;
+        min-width: 768px;
+        margin: 0 auto;
+        padding: 0 0;
+        .form{
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            background-color: #fff;
+            border-radius: 2px;
+            box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.05);
+            padding: 40px;
+            overflow: hidden;
+            .optIn{
+                padding-left: 32%;
+                user-select: none;
+            }
+            p{
+                color: #666;
+                margin: 0.5em 0 1.5em 32%;
+                line-height: 1.5;
+            }
+            #button{
+                padding-left: 32%;
+            }
+            .hr{
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #d8d8d8;
+            }
+            .links{
+                padding-left: 32%;
+                .a, .b{
+                    display: block;
+                    float: left;
+                    font-size: 11px;
+                }
+                .a:hover, .b:hover{
+                    color: red;
+                }
+                .a:after {
+                    content: "・";
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+/*
+    通用组件uc-button样式的开发
+    2020/4/4
+    为那些逝去的英雄默哀
+    version: 0.0.1
+*/
+.button{
+    border-radius: 2px;
+    background-clip: padding-box;
+    background-color: transparent;
+    border: none;
+    background-color: #464E54;
+    text-decoration: none !important;
+    color: #fff;
+    box-shadow: inset 1px 1px 0px rgba(255,255,255,0.2), 1px 1px 0px rgba(255,255,255,0.2);
+    z-index: 1;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-size: 11px !important;
+    outline: 0;
+    overflow: visible;
+    margin: 0;
+    padding: 12px 17px 11px !important;
+    text-decoration: none;
+    vertical-align: top;
+    width: auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
