@@ -29,13 +29,12 @@ let directory = (n) => {
   for (var i = 1; i <= n; i++) {
  
     data.push({
-      _id: i,
+      id: String(i),
       title: "@ctitle(3,6)",
-      name:"@cname()",
+      auth:"@cname()",
       "count|1-100":100,
-      detail:[
-        ...detail
-      ]
+      detail:detail
+      
     })
   }
   return data
@@ -46,12 +45,12 @@ module.exports = {
  
   ...Mock.mock({
  
-    'home': mapData(300),//解决 auth_icon 不随机
+    'home': mapData(60),//解决 auth_icon 不随机
     'directory': directory(60),
     'banner|6': [
       {
         // 属性 id 是一个自增数，起始值为 1，每次增 1
-        '_id|+1': 1,
+        'id|+1': 1,
         title: "@ctitle(3,6)",//标题型中文4到8个字
         time: "@date(yyyy-MM-dd)",
         img:"https://acg.xydwz.cn/gqapi/gqapi.php",

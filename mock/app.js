@@ -81,8 +81,8 @@ router.render = (req, res) => {//自定义返回结构
  
   setTimeout(()=>{//模拟服务器延时
     res.jsonp({
-      err: len >= 0 ? 0 : 1,
-      msg: len >= 0 ? '成功' : '失败',
+      err: len !== 0 ? 0 : 1,
+      msg: len !== 0 ? '成功' : '失败',
       data: res.locals.data
     })
   },1000)
