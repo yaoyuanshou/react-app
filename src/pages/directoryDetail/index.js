@@ -30,8 +30,7 @@ class DirectoryDetail extends React.Component {
                         {
                             data.map((item, index) => {
                                 return (
-                                        <Thumbnail visit data={{ _id: item.id, title: item.title, sub: item.time }} img={item.img}></Thumbnail>
-
+                                        <Thumbnail key={item.id} visit data={{ _id: item.id, title: item.title, sub: item.time }} img={item.img}></Thumbnail>
                                 )
                             })
                         }
