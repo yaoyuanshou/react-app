@@ -1,0 +1,51 @@
+.cell{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(149,154,158,0.6);
+    overflow: hidden;
+    cursor: pointer;
+    .icon{
+        width: 15%;
+        float: left;
+        .img2{
+            width:20px;
+            height:15px;
+            line-height: inherit;
+            position: relative;
+            top:20px;
+            padding-left:10px;
+        }
+        .img1{
+            width:20px;
+            height:15px;
+            line-height: inherit;
+            position: relative;
+            top:13px;
+            padding-left:10px;
+        }
+    }
+    .text{
+        width: 85%;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        float: left;
+        p{
+            color: #959a9e;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+            font-weight: normal;
+            margin-bottom: 0.6em;
+        }
+        span{
+            font-size: 12px;
+            color: #464E54;
+        }
+    }
+    
+}
+.cell:hover{
+    background-color: #fff;
+}

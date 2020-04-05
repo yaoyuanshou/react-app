@@ -8,6 +8,7 @@ import Login from '../pages/Login'
 import Directory from '../pages/directory/directory'
 import about from '../pages/about'
 import Nopage from '../pages/NoPage'
+import Detail from '../pages/Detail'
 export default class App extends React.Component{
     render(){
         return (
@@ -19,6 +20,7 @@ export default class App extends React.Component{
                     <Route path='/reg' component={Reg}/>
                     <Route path="/directory" component={Directory}></Route>
                     <Route path="/about" component={about}></Route>
+                    <Route path="/detail/:_id" component={Detail}/>
                     <Redirect from='/' to='/home' exact/>
                     <Route component={Nopage}/>
                 </Switch>
