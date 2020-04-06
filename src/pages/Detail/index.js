@@ -7,6 +7,8 @@
 import React from 'react'
 import style from './index.module.scss'
 import DetailCell from '../../components/detail-cell'
+import SubHeader from '../../components/sub-header'
+import Thumbnail from '../../components/thumbnail'
 export default class Detail extends React.Component {
     go = () => {
         alert('go')
@@ -63,6 +65,53 @@ export default class Detail extends React.Component {
                         <DetailCell span="添加收藏夹" img="/img/jia.png" alt="jia" bottom={true} onClick={add}/>
                     </div>
                 </section>
+                <SubHeader h2="相似 网站"/>
+                <div id={style.grid}>
+                    <Thumbnail
+                        data={{
+                            _id: '1',
+                            title: "dias",
+                            sub: "3天前"
+                        }}
+                        to={{
+                            pathname:'/detail',
+                            apiname: 'detiil'
+                        }}
+                    />
+                    <Thumbnail
+                        data={{
+                            _id: '2',
+                            title: "dias",
+                            sub: "3天前"
+                        }}
+                        to={{
+                            pathname:'/detail',
+                            apiname: 'detiil'
+                        }}
+                    />
+                    <Thumbnail
+                        data={{
+                            _id: '3',
+                            title: "dias",
+                            sub: "3天前"
+                        }}
+                        to={{
+                            pathname:'/detail',
+                            apiname: 'detiil'
+                        }}
+                    />
+                    <Thumbnail
+                        data={{
+                            _id: '4',
+                            title: "dias",
+                            sub: "3天前"
+                        }}
+                        to={{
+                            pathname:'/detail',
+                            apiname: 'detiil'
+                        }}
+                    />
+                </div>
             </div>
         )
     }

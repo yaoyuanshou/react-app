@@ -1,0 +1,44 @@
+#subHeader {
+    width: 940px;
+    max-width: 100%;
+    min-width: 768px;
+    margin: 0 auto;
+    padding: 0 0;
+    margin-top: 13px;
+    margin-bottom: 30px;
+    // overflow: hidden;
+    .hairline {
+        width: 100%;
+        position: relative;
+        min-height: 1px;
+        padding: 0 10px;
+        float: left;
+        border-bottom: 1px solid #d8d8d8;
+        text-align: center;
+        font-size: 19px;
+        font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        font-style: normal;
+        color: #505961;
+        text-rendering: optimizeLegibility;
+        line-height: 1.1;
+        margin-bottom: 12px;
+        margin-top: 12px;
+        span {
+            position: relative;
+            top: 10px;
+            background-color: #EAEAEA;
+            padding-right: 1em;
+            padding-left: 1em;
+        }
+    }
+    
+}
+#subHeader::after{
+    content: '';
+    display: block;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+    height: 0;
+}
