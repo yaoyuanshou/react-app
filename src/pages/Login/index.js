@@ -49,6 +49,7 @@ export default class Login extends React.Component {
                 this.props.history.push(path)
             }else{
                 this.props.history.push('/')
+                window.location.reload(true);
             }
         }else{
             this.setState({

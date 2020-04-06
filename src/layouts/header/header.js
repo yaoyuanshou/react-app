@@ -2,6 +2,8 @@ import React from 'react'
 import propTypes from 'prop-types'
 import './header.scss'
 import { Link, NavLink } from 'react-router-dom'
+import qs from 'qs'
+
 class Header extends React.Component {
     //传进来的标签内容
     static propTypes = {
@@ -13,7 +15,8 @@ class Header extends React.Component {
         login: false,//注册登录是否显示
         tag: false,//副导航详情标签是否显示
         lNow: 0,
-        search: false
+        search: false,
+        icon: ''//用户头像
     }
     //黑色运动线条的距离
     currentL = (ev) => {
@@ -52,6 +55,10 @@ class Header extends React.Component {
         }
         return el
     }
+    componentDidMount(){
+        let user = qs.parse(window.localStorage.getItem('user')) 
+        user.err === '0' ? this.setState({icon: user.data.icon}) : this.setState({icon: null})
+    }
     render() {
         return (
             <div className="headerWrapper">
@@ -78,11 +85,14 @@ class Header extends React.Component {
                         </div>
                     </div>
                     <div className="loginbox" onMouseEnter={this.login} onMouseLeave={this.login}>
-                        <p><img src={`/img/icon.png`} alt="" /></p>
+                        {/* <p></p> */}
+                        <p>
+                            {this.state.icon ? <img src={this.baseUrl + this.state.icon} alt="" className="icon"/> : <img src={`/img/icon.png`} alt="" />}
+                        </p>
                         {this.state.login && <div className="login">
                             <span className="iconfont">&#xe628;</span>
-                            <Link to="/login">登录</Link>
-                            <Link to="/reg">注册</Link>
+                            {this.state.icon ? <Link to="/login">注销</Link> : <div><Link to="/login">登录</Link>
+                            <Link to="/reg">注册</Link></div>}
                         </div>}
                     </div>
                 </div>
