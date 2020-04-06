@@ -11,20 +11,53 @@ import Logoh from '../../components/logoh'
 import UcInput from '../../components/uc-input'
 import UcButton from '../../components/uc-button'
 import {Link} from 'react-router-dom'
+import qs from 'qs'
+import axios from 'axios'
 export default class Login extends React.Component {
     state = {
         email: '',//邮箱
         password: '',//密码
+        message: '', //错误信息
     }
     changeIpt = (ev) => {
         this.setState({
             [ev.target.name]: ev.target.value
         })
     }
-    clickHeader = (ev) => {
-        console.log('jinx', ev)
+    login = async() => {
+        let {email, password} = this.state;
+        let login = new URLSearchParams();
+        login.append('username', email)
+        login.append('password', password)
+
+        let res = await axios({
+            url: '/api/login',
+            method: 'POST',
+            data: login
+        })
+
+        console.log(res.data)
+
+        if(res.data.err === 0){
+            //更新同步localStrage
+            window.localStorage.setItem('user', qs.stringify(res.data))
+            //跳转到之前
+            console.log(this.props);
+            let path = qs.parse(this.props.location.search, {ignoreQueryPrefix: true}).path
+
+            if(path && !path.includes('/login')){
+                this.props.history.push(path)
+            }else{
+                this.props.history.push('/')
+            }
+        }else{
+            this.setState({
+                message: res.data.msg
+            })
+        }
     }
     render(){
+        console.log(this.props);
         let {email, password} = this.state
         return(
             <div id={style.login}>
@@ -52,7 +85,7 @@ export default class Login extends React.Component {
                         <label htmlFor="optIn" className={style.optIn}><input type="checkbox" name="optIn" id="optIn" value="1" /> 记住密码？</label>
                         <p></p>
                         <div id={style.button}>
-                            <UcButton name="登 录" clickHeader={this.clickHeader}/>
+                            <UcButton name="登 录" clickHeader={this.login}/>
                         </div>
                         <div className={style.hr}></div>
                         <div className={style.links}>

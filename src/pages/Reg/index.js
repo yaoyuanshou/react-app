@@ -11,6 +11,7 @@ import Logoh from '../../components/logoh'
 import UcInput from '../../components/uc-input'
 import UcButton from '../../components/uc-button'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 export default class Reg extends React.Component {
     state = {
@@ -19,14 +20,27 @@ export default class Reg extends React.Component {
         email: '',//邮箱
         password: '',//密码
         npassword: '',//确认密码
+        message: ''
     }
     changeIpt = (ev) => {
         this.setState({
             [ev.target.name]: ev.target.value
         })
     }
-    clickHeader = (ev) => {
-        console.log('jinx', ev)
+    reg = async() => {
+        let {email, password} = this.state;
+        let reg = new FormData();
+        reg.append('username', email);
+        reg.append('password', password);
+
+        let res = await axios({
+            url: '/api/reg',
+            method: 'POST',
+            data: reg
+        })
+        console.log(res.data);
+
+        res.data.err === 0 ? this.props.history.push('/login') : this.setState({message: res.msg})
     }
     render(){
         let {firstName, lastName, email, password, npassword,} = this.state
@@ -59,7 +73,7 @@ export default class Reg extends React.Component {
                         <label htmlFor="optIn" className={style.optIn}><input type="checkbox" name="optIn" id="optIn" value="1" /> 收到我们的电子邮件？</label>
                         <p>每周在星期五接收新站点的摘要，以及其他（非常）偶然的新闻</p>
                         <div id={style.button}>
-                            <UcButton name="注 册" clickHeader={this.clickHeader}/>
+                            <UcButton name="注 册" clickHeader={this.reg}/>
                         </div>
                         <div className={style.hr}></div>
                         <div className={style.links}>
