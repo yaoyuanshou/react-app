@@ -1,19 +1,19 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import './header.scss'
-import {Link, NavLink} from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 class Header extends React.Component {
     //传进来的标签内容
-    static propTypes={
-        tagData:propTypes.array
+    static propTypes = {
+        tagData: propTypes.array
     }
 
     state = {
         l: 0,//黑色运动线条的距离
         login: false,//注册登录是否显示
         tag: false,//副导航详情标签是否显示
-        lNow:0,
-        search:false
+        lNow: 0,
+        search: false
     }
     //黑色运动线条的距离
     currentL = (ev) => {
@@ -35,18 +35,18 @@ class Header extends React.Component {
         })
     }
     //渲染搜索框
-    renderSearch=()=>{
+    renderSearch = () => {
         this.setState({
-            tag:!this.state.tag,
-            search:!this.state.search
+            tag: !this.state.tag,
+            search: !this.state.search
         })
     }
     //副导航详情需要显示的内容
-    renderTag=()=>{
-        let {tagData} = this.props
+    renderTag = () => {
+        let { tagData } = this.props
         let el = null
-        if(tagData){
-            el=tagData.map((item,index)=>{
+        if (tagData) {
+            el = tagData.map((item, index) => {
                 return (<span key={index}>{item}</span>)
             })
         }
@@ -78,7 +78,7 @@ class Header extends React.Component {
                         </div>
                     </div>
                     <div className="loginbox" onMouseEnter={this.login} onMouseLeave={this.login}>
-                        <i className="iconfont">&#xe609;</i>
+                        <p><img src={`/img/icon.png`} alt="" /></p>
                         {this.state.login && <div className="login">
                             <span className="iconfont">&#xe628;</span>
                             <Link to="/login">登录</Link>
@@ -90,7 +90,7 @@ class Header extends React.Component {
                     <div className="tag">
                         {this.state.search ? <div className="header__searchbox">
                             <i className="iconfont">&#xe607;</i>
-                            <input type="text"/>
+                            <input type="text" />
                         </div> : this.renderTag()}
                     </div>
                 </div>}
