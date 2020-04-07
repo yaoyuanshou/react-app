@@ -18,10 +18,14 @@ class Web extends React.Component {
     render() {
         console.log(this.state.webData)
         return (<div className="webWrapper">
+           
+            <div className="web">
             <h1 className="web__title">网站</h1>
-            {this.state.webData.map((item, index) => {
-               return <Thumbnail key={item.id} to={{pathname:"/detail",apiname:"home"}} visit data={{_id:item.id,title:item.title,sub:item.time}}  img={item.img}></Thumbnail>
-            })}
+                {this.state.webData.map((item, index) => {
+                    return <Thumbnail key={index} to={{ pathname: "/detail", apiname: "home" }} visit data={{ _id: item.id, title: item.title, sub: item.time }} img={item.img}></Thumbnail>
+                })}
+            </div>
+
 
         </div>)
     }
