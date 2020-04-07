@@ -7,6 +7,11 @@ import './assets/css/base.css'
 //引入阿里图标库
 import './assets/iconfont/iconfont.css'
 import App from './layouts/App'
+
+import {serverBaseUrl} from './utils/server'//引入serverurl
+React.baseUrl = serverBaseUrl;
+React.Component.prototype.baseUrl=serverBaseUrl;
+
 ReactDom.render(
     <BrowserRouter>
         <Route component={App}/>

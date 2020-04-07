@@ -43,7 +43,7 @@ export default class Detail extends React.Component {
                     <div className={style.left}>
                         <div>
                             <a href="/" className={style.preview}>
-                                <img src="https://d27yqot8savz5t.cloudfront.net/screengrabs/images/000/013/045/medium.jpg" alt="Medium"/>
+                                <img src="/img/small.jpg" alt="Medium"/>
                             </a>
                         </div>
                         <div>
