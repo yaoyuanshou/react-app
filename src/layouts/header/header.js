@@ -37,6 +37,11 @@ class Header extends React.Component {
             tag: !this.state.tag
         })
     }
+    //注销
+    logout = () => {
+        window.localStorage.removeItem('user');
+        window.location.reload(true);
+    }
     //渲染搜索框
     renderSearch = () => {
         this.setState({
@@ -91,7 +96,7 @@ class Header extends React.Component {
                         </p>
                         {this.state.login && <div className="login">
                             <span className="iconfont">&#xe628;</span>
-                            {this.state.icon ? <Link to="/login">注销</Link> : <div><Link to="/login">登录</Link>
+                            {this.state.icon ? <Link to="/" onClick={this.logout}>注销</Link> : <div><Link to="/login">登录</Link>
                             <Link to="/reg">注册</Link></div>}
                         </div>}
                     </div>
