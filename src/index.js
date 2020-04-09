@@ -7,10 +7,13 @@ import './assets/css/base.css'
 //引入阿里图标库
 import './assets/iconfont/iconfont.css'
 import App from './layouts/App'
+import './plugins/redux'//引入redux配置
 
 import {serverBaseUrl} from './utils/server'//引入serverurl
 React.baseUrl = serverBaseUrl;
 React.Component.prototype.baseUrl=serverBaseUrl;
+
+
 
 ReactDom.render(
     <BrowserRouter>
