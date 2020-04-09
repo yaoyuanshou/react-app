@@ -1,24 +1,20 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
 import './directory.scss'
 import Cell from '../../components/directoryCell'
-import axios from 'axios'
+import {connect} from 'react-redux'
+import { clear, mockList } from '../../store/actionCreators'
 class Directory extends React.Component{
-    state={
-        directoryData:[]
-    }
+   
 
-    async componentDidMount(){
-        let res = await axios({url:"/mock/directory"})
-       this.setState({
-           directoryData:res.data.data
-       })
+    componentDidMount(){
+        this.props.dispatch(clear("CLEAR_DIRECTORY"))
+        this.props.dispatch(mockList({collectionname:"directory",type:"UPDATE_DIRECTORY"}))
     }
     render(){
         return (
             <div className="directoryWrapper">
                 <h1 className="directoryWrapper__title">目录</h1>
-                 {this.state.directoryData.map((item,index)=>{
+                 {this.props.directory.map((item,index)=>{
                     return  <Cell key={item.id} data={item} to={{pathname:"/directoryDetail",apiname:"directory"}}></Cell>
                 })}   
             </div>
@@ -26,4 +22,6 @@ class Directory extends React.Component{
     }
 }
 
-export default withRouter(Directory)
+export default connect(
+    state=>({directory:state.directory})
+)(Directory)

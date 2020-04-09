@@ -1,27 +1,21 @@
 import React from 'react'
 import './web.scss'
-import axios from 'axios'
+import {connect} from 'react-redux'
 import Thumbnail from '../../components/thumbnail'
+import { clear, mockList } from '../../store/actionCreators'
 class Web extends React.Component {
-    state = {
-        webData: []
-    }
     componentDidMount() {
-        axios({ url: "/mock/home" }).then(
-            res => {
-                this.setState({
-                    webData: res.data.data
-                })
-            }
-        )
+       this.props.dispatch(clear("CLEAR_WEB"))
+       this.props.dispatch(
+           mockList({collectionname:"home",type:"UPDATE_WEB"})
+       )
     }
     render() {
-        console.log(this.state.webData)
         return (<div className="webWrapper">
            
             <div className="web">
             <h1 className="web__title">网站</h1>
-                {this.state.webData.map((item, index) => {
+                {this.props.web.map((item, index) => {
                     return <Thumbnail key={index} to={{ pathname: "/detail", apiname: "home" }} visit data={{ _id: item.id, title: item.title, sub: item.time }} img={item.img}></Thumbnail>
                 })}
             </div>
@@ -31,4 +25,6 @@ class Web extends React.Component {
     }
 }
 
-export default Web
+export default connect(
+    state=>({web:state.web})
+)(Web)
