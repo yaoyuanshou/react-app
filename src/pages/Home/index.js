@@ -60,6 +60,36 @@ export default class Home extends React.Component {
                         }}
                     />
                 </div>
+                <section id={style.pagination}>
+                    <div className={style['pagination-centered']}>
+                        <ul>
+                            <li>
+                                <a className={style.aActive} href="/">1</a>
+                            </li>
+                            <li>
+                                <a className={style.a} rel="next" href="/websites?page=2">2</a>
+                            </li>
+                            <li>
+                                <a className={style.a} href="/websites?page=3">3</a>
+                            </li>
+                            <li>
+                                <a className={style.a} href="/websites?page=4">4</a>
+                            </li>
+                            <li>
+                                <a className={style.a} href="/websites?page=5">5</a>
+                            </li>
+                            <li>
+                                <a className={style.a} href="/">...</a>
+                            </li>
+                            <li>
+                                <a className={style.a} rel="next" href="/websites?page=2">→</a>
+                            </li>
+                            <li>
+                                <a className={style.a} href="/websites?page=262">Last →</a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
             </div>
             
         )
