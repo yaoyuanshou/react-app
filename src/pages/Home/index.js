@@ -8,57 +8,38 @@ import React from 'react'
 import style from './index.module.scss'
 import Thumbnail from '../../components/thumbnail'
 import Banner from '../../components/banner'
-export default class Home extends React.Component {
+import {connect} from 'react-redux'
+import {mockList} from '../../store/actionCreators'
+
+class Home extends React.Component {
+    componentDidMount(){
+        this.props.dispatch(
+            mockList({collectionname: 'home', type: 'UPDATA_HOME', _limit:15})
+        )
+    }
     render(){
         return (
             <div className={style.home}>
                 <Banner/>
                 <div id={style.grid}>
-                    <Thumbnail
-                        data={{
-                            _id: '1',
-                            title: "dias",
-                            sub: "3天前"
-                        }}
-                        to={{
-                            pathname:'/detail',
-                            apiname: 'detiil'
-                        }}
-                    />
-                    <Thumbnail
-                        data={{
-                            _id: '2',
-                            title: "dias",
-                            sub: "3天前"
-                        }}
-                        to={{
-                            pathname:'/detail',
-                            apiname: 'detiil'
-                        }}
-                    />
-                    <Thumbnail
-                        data={{
-                            _id: '3',
-                            title: "dias",
-                            sub: "3天前"
-                        }}
-                        to={{
-                            pathname:'/detail',
-                            apiname: 'detiil'
-                        }}
-                        visit={true}
-                    />
-                    <Thumbnail
-                        data={{
-                            _id: '4',
-                            title: "dias",
-                            sub: "3天前"
-                        }}
-                        to={{
-                            pathname:'/detail',
-                            apiname: 'detiil'
-                        }}
-                    />
+                    {this.props.home.map((item, index) => {
+                        return(
+                            <Thumbnail
+                                key={index}
+                                data={{
+                                    id: item.id,
+                                    title: item.title,
+                                    sub: item.time,
+                                }}
+                                img={item.img}
+                                visit
+                                to={{
+                                    pathname:'/detail',
+                                    apiname: 'detail'
+                                }}
+                            />
+                        )
+                    })}
                 </div>
                 <section id={style.pagination}>
                     <div className={style['pagination-centered']}>
@@ -95,3 +76,7 @@ export default class Home extends React.Component {
         )
     }
 }
+
+export default connect(
+    state => ({home: state.reducerHome})
+)(Home)

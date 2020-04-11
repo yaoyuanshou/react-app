@@ -9,7 +9,11 @@ import style from './index.module.scss'
 import DetailCell from '../../components/detail-cell'
 import SubHeader from '../../components/sub-header'
 import Thumbnail from '../../components/thumbnail'
-export default class Detail extends React.Component {
+import {mockList} from '../../store/actionCreators'
+import {connect} from 'react-redux'
+
+
+class Detail extends React.Component {
     go = () => {
         alert('go')
     }
@@ -21,6 +25,12 @@ export default class Detail extends React.Component {
     }
     add = () => {
         alert('add')
+    }
+
+    componentDidMount(){
+        this.props.dispatch(
+            mockList({collectionname: 'home', type:'UPDATA_DETAIL', _limit:5})
+        )
     }
     render(){
         let {go, prev, yes, add} = this
@@ -67,52 +77,28 @@ export default class Detail extends React.Component {
                 </section>
                 <SubHeader h2="相似 网站"/>
                 <div id={style.grid}>
-                    <Thumbnail
-                        data={{
-                            _id: '1',
-                            title: "dias",
-                            sub: "3天前"
-                        }}
-                        to={{
-                            pathname:'/detail',
-                            apiname: 'detiil'
-                        }}
-                    />
-                    <Thumbnail
-                        data={{
-                            _id: '2',
-                            title: "dias",
-                            sub: "3天前"
-                        }}
-                        to={{
-                            pathname:'/detail',
-                            apiname: 'detiil'
-                        }}
-                    />
-                    <Thumbnail
-                        data={{
-                            _id: '3',
-                            title: "dias",
-                            sub: "3天前"
-                        }}
-                        to={{
-                            pathname:'/detail',
-                            apiname: 'detiil'
-                        }}
-                    />
-                    <Thumbnail
-                        data={{
-                            _id: '4',
-                            title: "dias",
-                            sub: "3天前"
-                        }}
-                        to={{
-                            pathname:'/detail',
-                            apiname: 'detiil'
-                        }}
-                    />
+                    {this.props.detail.map((item, index) => {
+                        return <Thumbnail
+                            key={index}
+                            data={{
+                                id: item.id,
+                                title: item.title,
+                                sub: item.time,
+                            }}
+                            img={item.img}
+                            visit
+                            to={{
+                                pathname:'/detail',
+                                apiname: 'detail'
+                            }}
+                        />
+                    })}
                 </div>
             </div>
         )
     }
 }
+
+export default connect(
+    state => ({detail: state.reducerDetail})
+)(Detail)

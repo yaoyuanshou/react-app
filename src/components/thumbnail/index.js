@@ -17,7 +17,6 @@ class Thumbnail extends React.Component {
     static propTypes = {
         visit: propTypes.bool,//是否显示跳转小图片，默认false
         data: propTypes.shape({
-            _id: propTypes.string,//id
             title: propTypes.string,//标题
             sub: propTypes.string,//发布时间
         }),
@@ -27,25 +26,25 @@ class Thumbnail extends React.Component {
             apiname: propTypes.string,//选择集合名
         })
     }
-    to = (_id) => {
+    to = (id) => {
         //获取传入的值做编程式跳转
         console.log(this.props);
         if (!this.props.to) return;
         let {history,to:{pathname,apiname}}=this.props;
-        history.push({pathname:`${pathname}/${_id}`,search:`apiname=${apiname}`})
+        history.push({pathname:`${pathname}/${id}`,search:`apiname=${apiname}`})
     }
 
     render(){
-        let {_id, title, sub} = this.props.data
+        let {id, title, sub} = this.props.data
         return (
             <div className={style.thumbnail}>
                 <div className={style.wrapper}>
                     <div className={style.image}>
-                        <div className={style.main} onClick={() => this.to(_id)}>
+                        <div className={style.main} onClick={() => this.to(id)}>
                             <img src={this.props.img} alt="small" className={style.show}></img>
                         </div>
                         {this.props.visit && 
-                        <div className={style.overlay} onClick={() => this.to(_id)}>
+                        <div className={style.overlay} onClick={() => this.to(id)}>
                             <div className={style.visit}><span>↪</span></div>
                         </div>}
                         
@@ -53,7 +52,7 @@ class Thumbnail extends React.Component {
                 </div>
                 <div className={style.caption}>
                     <div className={style.title}>
-                        <div onClick={()=>this.to(_id)}>{title}</div>
+                        <div onClick={()=>this.to(id)}>{title}</div>
                     </div>
                     <div className={style.sub}>
                         {sub}

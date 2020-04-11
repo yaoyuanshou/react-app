@@ -10,7 +10,7 @@ let mapData = (n) => {
   for (var i = 1; i <= n; i++) {
  
     data.push({
-      _id: i,
+      id: i,
       title: "@ctitle(3,6)",
       time: "@date(yyyy-MM-dd)",
       img:"https://acg.xydwz.cn/gqapi/gqapi.php",

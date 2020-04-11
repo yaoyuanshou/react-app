@@ -5,8 +5,8 @@ export const clear = type => ({
 })
 
 //Mock的接口
-export const mockList = ({collectionname,type}) => dispatch => {
-    axios({url:`/mock/${collectionname}`}).then(
+export const mockList = ({collectionname,type,_limit,_page=0}) => dispatch => {
+    axios({url:`/mock/${collectionname}?_limit=${_limit}&_page=${_page}`}).then(
         res=>dispatch({type,payload:res.data.data})
     ).catch(
         err=>console.log("mockList",err)

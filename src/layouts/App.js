@@ -23,7 +23,7 @@ export default class App extends React.Component{
                     <Route path="/web" component={Web}></Route>
                     <Route path="/directory" component={Directory}></Route>
                     <Route path="/about" component={about}></Route>
-                    <Route path="/detail/:_id" component={Detail}/>
+                    <Route path="/detail/:id" component={Detail}/>
                     <Route path="/directoryDetail/:id" component={DirectoryDetail}></Route>
                     <Redirect from='/' to='/home' exact/>
                     <Route component={Nopage}/>
