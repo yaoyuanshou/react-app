@@ -21,3 +21,11 @@ export const directoryList = ({collectioname,id}) => dispatch =>{
         err=>console.log("directoryList",err)
     )
 }
+//detail
+export const detailList = ({collectioname,id}) => dispatch =>{
+    axios({url:`/mock/${collectioname}/${id}`}).then(
+        res=>dispatch({type:"UPDATE_DETAIL",payload:res.data.data})
+    ).catch(
+        err=>console.log("detailList",err)
+    )
+}

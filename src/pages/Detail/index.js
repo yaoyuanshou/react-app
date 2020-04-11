@@ -9,11 +9,22 @@ import style from './index.module.scss'
 import DetailCell from '../../components/detail-cell'
 import SubHeader from '../../components/sub-header'
 import Thumbnail from '../../components/thumbnail'
-import {mockList} from '../../store/actionCreators'
+import {mockList ,detailList} from '../../store/actionCreators'
 import {connect} from 'react-redux'
+import qs from 'qs'
+
 
 
 class Detail extends React.Component {
+    constructor(props){
+        super(props);
+
+        let apiname = qs.parse(props.location.search, { ignoreQueryPrefix: true }).apiname
+        let id = props.match.params.id
+        this.props.dispatch(
+            detailList({collectioname:'home', apiname, id})
+        )
+    }
     go = () => {
         alert('go')
     }
@@ -28,8 +39,9 @@ class Detail extends React.Component {
     }
 
     componentDidMount(){
+       
         this.props.dispatch(
-            mockList({collectionname: 'home', type:'UPDATA_DETAIL', _limit:5})
+            mockList({collectionname: 'home', type:'UPDATA_HOME', _limit:5})
         )
     }
     render(){
@@ -41,7 +53,7 @@ class Detail extends React.Component {
                         <div className={style.breadcrumbs}>
                             <a href="/" className={style.a}>Home</a> ∙ <a href="/websites" className={style.a}>All Websites</a>
                         </div>
-                        <h1>Bored.Solutions</h1>
+                        <h1>{this.props.detail.title}</h1>
                     </div>
                     <div className={style.actions}>
                         <ul className={style.button_group}>
@@ -53,7 +65,7 @@ class Detail extends React.Component {
                     <div className={style.left}>
                         <div>
                             <a href="/" className={style.preview}>
-                                <img src="/img/small.jpg" alt="Medium"/>
+                                <img src={this.props.detail.img} alt={this.props.detail.title}/>
                             </a>
                         </div>
                         <div>
@@ -77,7 +89,7 @@ class Detail extends React.Component {
                 </section>
                 <SubHeader h2="相似 网站"/>
                 <div id={style.grid}>
-                    {this.props.detail.map((item, index) => {
+                    {this.props.home.map((item, index) => {
                         return <Thumbnail
                             key={index}
                             data={{
@@ -100,5 +112,5 @@ class Detail extends React.Component {
 }
 
 export default connect(
-    state => ({detail: state.reducerDetail})
+    state => ({detail: state.reducerDetail,home: state.reducerHome})
 )(Detail)

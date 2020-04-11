@@ -38,6 +38,10 @@
                     -webkit-font-smoothing: antialiased;
                 }
             }
+            img{
+                width: 640px;
+                height:396px;
+            }
             div:hover .bannerTitle{
                 background-color: rgba(70,78,84,0.8);
             }

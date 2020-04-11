@@ -15,16 +15,8 @@ class Banner extends React.Component {
     constructor(){
         super();
         this.state = {
-            list: [
-                {_id: '0', src: '/img/small.jpg', alt: 'small', bannerTitle: 'Daphne Wilde →', pathname: '/detail', apiname: 'detail'},
-                {_id: '1', src: '/img/small.jpg', alt: 'small', bannerTitle: 'Daphne Wilde →', pathname: '/detail', apiname: 'detail'},
-                {_id: '2', src: '/img/small.jpg', alt: 'small', bannerTitle: 'Daphne Wilde →', pathname: '/detail', apiname: 'detail'},
-                {_id: '3', src: '/img/small.jpg', alt: 'small', bannerTitle: 'Daphne Wilde →', pathname: '/detail', apiname: 'detail'},
-                {_id: '4', src: '/img/small.jpg', alt: 'small', bannerTitle: 'Daphne Wilde →', pathname: '/detail', apiname: 'detail'},
-                {_id: '5', src: '/img/small.jpg', alt: 'small', bannerTitle: 'Daphne Wilde →', pathname: '/detail', apiname: 'detail'},
                 //list需要的属性
                 //{_id: 'id', src: '图片路径', alt: '图片描述', bannerTitle: '跳转title', pathname: '详情路径', apiname: '集合名称'},
-            ]
         }
     }
     to = (_id, pathname, apiname) => {
@@ -44,19 +36,18 @@ class Banner extends React.Component {
             autoplay: true,//自动轮播
             arrows: true,//是否显示箭头
         };
-        let {list} = this.state;
         return (
             <div id="slideshow">
                 <h1 className="centered">Latest from the Showcase</h1>
                 <Slider {...settings} className="slideshow">
-                    {list.map((item, index) => {
+                    {this.props.list.map((item, index) => {
                         // map循环遍历元素
                         return (
-                            <div className="bannerGo" key={item._id} onClick={() => this.to(item._id, item.pathname, item.apiname)}>
+                            <div className="bannerGo" key={item.id} onClick={() => this.to(item.id, this.props.pathname, this.props.apiname)}>
                                 <div>
-                                    <img src={item.src} alt={item.alt}>
+                                    <img src={item.img} alt={item.title}>
                                     </img>
-                                    <p className="bannerTitle">{item.bannerTitle}</p>
+                                    <p className="bannerTitle">{item.title}</p>
                                 </div> 
                             </div> 
                         )

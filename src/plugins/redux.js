@@ -6,8 +6,9 @@ import web from '../store/reducers/web'
 import directory from '../store/reducers/directory'
 import directoryDetail from '../store/reducers/directoryDetail'
 import {reducerDetail} from '../store/reducers/detail'
+import {banner} from '../store/reducers/banner'
 
-let reducers = combineReducers({reducerHome,web,reducerDetail,directory,directoryDetail})//合并为一个reducer
+let reducers = combineReducers({reducerHome,web,reducerDetail,directory,directoryDetail,banner})//合并为一个reducer
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;//使用redux-devtools

@@ -1,10 +1,8 @@
-let initState = [];
-
-export const reducerDetail = (state = initState, action) => {
-
+const InitState = []
+export const banner = (state = InitState, action) => {
     let {payload} = action
     switch (action.type) {
-        case 'UPDATE_DETAIL':
+        case 'UPDATA_BANNER':
             return payload
         default:
             return state

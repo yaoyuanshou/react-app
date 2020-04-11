@@ -16,11 +16,14 @@ class Home extends React.Component {
         this.props.dispatch(
             mockList({collectionname: 'home', type: 'UPDATA_HOME', _limit:15})
         )
+        this.props.dispatch(
+            mockList({collectionname: 'banner', type:'UPDATA_BANNER', _limit:6})
+        )
     }
     render(){
         return (
             <div className={style.home}>
-                <Banner/>
+                <Banner list={this.props.banner} pathname="detail" apiname="detail"/>
                 <div id={style.grid}>
                     {this.props.home.map((item, index) => {
                         return(
@@ -78,5 +81,5 @@ class Home extends React.Component {
 }
 
 export default connect(
-    state => ({home: state.reducerHome})
+    state => ({home: state.reducerHome, banner:state.banner})
 )(Home)
